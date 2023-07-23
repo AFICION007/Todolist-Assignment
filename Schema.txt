@@ -1,0 +1,27 @@
+NoSQL Database - JS Objects based Schema
+
+Tasks [Task Array]
+
+Task object {
+    id: Number,
+    task: String,
+    is_completed: Boolean,
+    category: {
+        type: String,
+        enum ["personal"
+        "work"
+        "education"
+        "shopping"
+        "finance"
+        "health and wellness"
+        "social"
+        "hobbies"
+        "miscellaneous"],
+    due_date: String ('DD-MM-YYYY' format),
+    priority: {
+        type: String,
+            enum: ["low", "medium", "high"]
+    },
+    subtasks: [Strings Array],
+    tags: [Strings Array]
+}
