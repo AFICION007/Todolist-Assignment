@@ -1,0 +1,131 @@
+body {
+    font-family: 'Open sans';
+}
+
+h1 {
+    font-size: 40px;
+    margin-top: 20px;
+    font-weight: 800;
+    color: #333;
+    line-height: 1.3em;
+    text-align: center;
+}
+
+#taskForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 10px;
+    width: 55%;
+    padding-inline: 2.5%;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#checkbox {
+    display: inline;
+}
+
+#is_completed {
+    position: relative;
+    vertical-align: middle;
+}
+
+
+input[type="date"],
+select,
+textarea {
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    padding-block: 5px;
+    padding-inline: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Open sans';
+    font-weight: 400;
+}
+
+input[type="text"] {
+    box-sizing: border-box;
+    height: 40px;
+    width: 50%;
+    padding-block: 5px;
+    padding-inline: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Open sans';
+    font-weight: 400;
+}
+
+textarea {
+    height: 76px;
+}
+
+.tag {
+    margin-bottom: 5px;
+}
+
+#category {
+    width: 50%;
+}
+
+input[type="date"],
+select {
+    width: 35%;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+button[type="button"] {
+    margin-top: 7.5px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Open sans';
+    font-size: 15px;
+    font-weight: 400;
+    width: 200px;
+}
+
+button[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+button[type="submit"] {
+    width: 25%;
+    padding: 10px 16px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Open sans';
+    font-size: 16px;
+    font-weight: 400;
+}
+
+button[type="submit"]:hover {
+    background-color: #1e7e34;
+}

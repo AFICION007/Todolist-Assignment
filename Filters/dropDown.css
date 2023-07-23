@@ -1,0 +1,22 @@
+.category-options,
+.priority-options {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.category-option,
+.priority-option {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+    padding: 2.5px;
+}
+
+.category-active,
+.priority-active {
+    font-weight: bold;
+    color: #007bff;
+    outline: none;
+}

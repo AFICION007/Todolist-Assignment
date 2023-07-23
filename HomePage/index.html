@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>To do list homepage</title>
+        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="search.css" />
+    </head>
+    <body>
+        <h1>Todolist Home Page</h1>
+        <div class="top-container">
+            <a href="../Filters/filters.html">
+                <div class="filters">
+                    <button class="filter-button">
+                        Filters
+                        <img
+                            src="../assets/filter.png"
+                            alt="filter icon"
+                            class="filter-icon"
+                        />
+                    </button>
+                </div>
+            </a>
+            <div class="sort-by">
+                <button class="sort-by-button">Sort by</button>
+                <svg
+                    class="sort-by-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="1em"
+                    viewBox="0 0 320 512"
+                >
+                    <style>
+                        svg {
+                            fill: #000000;
+                        }
+                    </style>
+                    <path
+                        d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z"
+                    />
+                </svg>
+                <svg
+                    class="cross-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="1em"
+                    viewBox="0 0 384 512"
+                >
+                    <style>
+                        svg {
+                            fill: #000000;
+                        }
+                    </style>
+                    <path
+                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                    />
+                </svg>
+            </div>
+            <div class="search-box-container">
+                <div class="search-box">
+                    <input
+                        class="search-bar"
+                        type="text"
+                        placeholder="Search"
+                    />
+                </div>
+                <div class="search-button-container">
+                    <button class="search-button">
+                        <img class="search-logo" src="../assets/search.svg" />
+                    </button>
+                </div>
+            </div>
+            <a href="../AddTask/form.html">
+                <div class="add-task">
+                    <button class="add-task-button">
+                        Add task
+                        <svg
+                            class="add-task-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="1em"
+                            viewBox="0 0 448 512"
+                        >
+                            <path
+                                d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
+                            />
+                        </svg>
+                    </button>
+                </div>
+            </a>
+            <div style="width: 140px"></div>
+        </div>
+        <div class="drop-down-menu show-menu">
+            <ul class="options-list">
+                <li class="option">Due date</li>
+                <li class="option">Priority</li>
+            </ul>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,125 @@
+body {
+    margin-inline: 100px;
+    margin-top: 20px;
+    font-family: 'Open sans';
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 56px;
+    font-weight: 800;
+    color: #333;
+    line-height: 1.3em;
+    text-align: center;
+}
+
+.top-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+
+.filter-button,
+.sort-by-button,
+.add-task-button {
+    margin-inline-end: 20px;
+    width: 140px;
+    padding-block: 0px;
+    padding-inline: 20px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    height: 40px;
+    font-size: 18px;
+    font-family: 'Open sans';
+    border-radius: 5px;
+}
+
+.filter-button,
+.add-task-button {
+    padding-inline-end: 15px;
+}
+
+.add-task-button {
+    margin-inline-end: 0;
+    margin-inline-start: 20px;
+
+}
+
+.filter-button:hover,
+.sort-by-button:hover,
+.add-task-button:hover {
+    background-color: rgb(220, 220, 220, 0.8);
+}
+
+.filter-icon,
+.sort-by-icon,
+.add-task-icon {
+    height: 20px;
+}
+
+.sort-by {
+    font-size: 18px;
+    position: relative;
+}
+
+.sort-by-icon {
+    position: absolute;
+    display: block;
+    top: 10px;
+    right: 40px;
+}
+
+.cross-icon {
+    position: absolute;
+    top: 12px;
+    right: 40px;
+    display: none;
+}
+
+.drop-down-menu {
+    position: absolute;
+    top: 195px;
+    left: 260px;
+    width: 140px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+
+.show-menu {
+    display: none;
+}
+
+.options-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.option {
+    height: 42px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.option:hover {
+    background-color: rgb(220, 220, 225);
+    border-bottom: 1px solid rgb(220, 220, 220, 0.8);
+}

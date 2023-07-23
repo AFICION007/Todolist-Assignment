@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>To Do List App</title>
+        <link href="form.css" rel="stylesheet"></link>
+
+    </head>
+    <body>
+        <h1>Add Task to the Todolist</h1>
+        <form id="taskForm" onsubmit="addTask(event)">
+            <div class="form-group">
+                <label for="task"> Write Task:</label>
+                <textarea id="task" name="task" type="text" required></textarea>
+            </div>
+        
+            <div class="form-group">
+                <label for="is_completed" id="checkbox" class="switch">
+                    Completed:
+                </label>
+                <input id="is_completed" name="is_completed" type="checkbox" />
+            </div>
+        
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="">None</option>
+                    <option value="personal">Personal</option>
+                    <option value="work">Work</option>
+                    <option value="education">Education</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="finance">Finance</option>
+                    <option value="health and wellness">Health and Wellness</option>
+                    <option value="social">Social</option>
+                    <option value="hobbies">Hobbies</option>
+                    <option value="miscellaneous">Miscellaneous</option>
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <label for="due_date">Due Date:</label>
+                <input id="due_date" name="due_date" type="date" required />
+            </div>
+        
+            <div class="form-group">
+                <label for="priority">Priority:</label>
+                <select id="priority" name="priority" required>
+                    <option value="">None</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <label for="subtask">Sub-Tasks:</label>
+                <div id="subtasks">
+                    <textarea class="subtask" name="subtasks[]" type="text" required></textarea>
+                </div>
+                <button type="button" onclick="addInputField('subtasks')">
+                    Add another subtask
+                </button>
+            </div>
+        
+            <div class="form-group">
+                <label for="tag">Tags:</label>
+                <div id="tags">
+                    <input class="tag" name="tags[]" type="text" required></input>
+                </div>
+                <button type="button" onclick="addInputField('tags')">
+                    Add another tag
+                </button>
+            </div>
+        
+            <button type="submit" value="add task">Submit</button>
+        </form>
+        
+
+        <script src="form.js"></script>
+    </body>
+</html>
