@@ -49,17 +49,21 @@ const addTask = ({
     subtasksList.classList.add("subtasks-list");
     taskSubtasks.appendChild(subtasksList);
 
-    const subtaskInput = document.createElement("input");
-    subtaskInput.classList.add("subtask");
     if (Array.isArray(subtasks)) {
         subtasks.forEach((subtask) => {
+            const subtaskInput = document.createElement("input");
+            subtaskInput.classList.add("subtask");
             subtaskInput.placeholder = subtask;
+            subtaskInput.disabled = true;
+            subtasksList.appendChild(subtaskInput);
         });
     } else {
+        const subtaskInput = document.createElement("input");
+        subtaskInput.classList.add("subtask");
         subtaskInput.placeholder = subtasks;
+        subtaskInput.disabled = true;
+        subtasksList.appendChild(subtaskInput);
     }
-    subtaskInput.disabled = true;
-    subtasksList.appendChild(subtaskInput);
 
     const taskTags = document.createElement("div");
     taskTags.classList.add("task-tags");
@@ -74,101 +78,74 @@ const addTask = ({
     tagsList.classList.add("tags-list");
     taskTags.appendChild(tagsList);
 
-    const tagListItem = document.createElement("li");
-    tagListItem.classList.add("tag");
     if (Array.isArray(tags)) {
         tags.forEach((tag) => {
+            const tagListItem = document.createElement("li");
+            tagListItem.classList.add("tag");
             tagListItem.textContent = tag;
+            tagsList.appendChild(tagListItem);
         });
     } else {
+        const tagListItem = document.createElement("li");
+        tagListItem.classList.add("tag");
         tagListItem.textContent = tags;
+        tagsList.appendChild(tagListItem);
     }
-    tagsList.appendChild(tagListItem);
 
     return taskDiv;
 };
 
 var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-// var tasks = [];
-// var tasks = [
-//     {
-//         id: 1,
-//         task: "Buy groceries",
-//         is_completed: false,
-//         category: "shopping",
-//         due_date: "2023-07-30",
-//         priority: "medium",
-//         subtasks: [
-//             "Make a shopping list",
-//             "Go to the supermarket",
-//             "Pay for groceries",
-//         ],
-//         tags: ["Shopping", "Food"],
-//     },
+console.log(tasks);
 
-//     {
-//         id: 2,
-//         task: "Finish project report",
-//         is_completed: false,
-//         category: "work",
-//         due_date: "2023-08-15",
-//         priority: "high",
-//         subtasks: [
-//             "Research data",
-//             "Write content",
-//             "Create graphs",
-//             "Proofread",
-//         ],
-//         tags: ["Work", "Project", "Reports"],
-//     },
+function filterTasks({ from, to, category, priority }, tasks) {
+    return tasks.filter((task) => {
+        let meetsCriteria = true;
 
-//     {
-//         id: 3,
-//         task: "Call mom on her birthday",
-//         is_completed: false,
-//         category: "personal",
-//         due_date: "2023-09-10",
-//         priority: "low",
-//         subtasks: [
-//             "Find a nice gift",
-//             "Set a reminder",
-//             "Prepare for a longer conversation",
-//         ],
-//         tags: ["Family", "Birthdays"],
-//     },
+        if (from && new Date(task.due_date) < new Date(from)) {
+            meetsCriteria = false;
+        }
+        if (to && new Date(task.due_date) > new Date(to)) {
+            meetsCriteria = false;
+        }
 
-//     {
-//         id: 4,
-//         task: "Plan weekend getaway",
-//         is_completed: false,
-//         category: "personal",
-//         due_date: "2023-08-05",
-//         priority: "high",
-//         subtasks: [
-//             "Research destinations",
-//             "Book accommodation",
-//             "Pack essentials",
-//         ],
-//         tags: ["Travel", "Relaxation"],
-//     },
+        if (category != "none" && task.category !== category) {
+            meetsCriteria = false;
+        }
+        if (priority != "none" && task.priority !== priority) {
+            meetsCriteria = false;
+        }
 
-//     {
-//         id: 5,
-//         task: "Attend team meeting",
-//         is_completed: false,
-//         category: "work",
-//         due_date: "2023-07-28",
-//         priority: "medium",
-//         subtasks: [
-//             "Review meeting agenda",
-//             "Prepare talking points",
-//             "Take meeting notes",
-//         ],
-//         tags: ["Work", "Meeting"],
-//     },
-// ];
-// localStorage.setItem("tasks", JSON.stringify(tasks));
+        return meetsCriteria;
+    });
+}
+
+const tasksContainer = document.querySelector(".tasks-container");
+function renderTasks(tasks) {
+    tasksContainer.innerHTML = "";
+
+    console.log(JSON.parse(localStorage.getItem("filter-object")));
+
+    const { from, to, category, priority } = JSON.parse(
+        localStorage.getItem("filter-object")
+    ) || { from: "", to: "", category: "none", priority: "none" };
+    if (
+        !(
+            from === "" &&
+            to === "" &&
+            category === "none" &&
+            priority === "none"
+        )
+    ) {
+        tasks = filterTasks({ from, to, category, priority }, tasks);
+    }
+
+    tasks.forEach((task) => {
+        const taskElement = addTask(task);
+        tasksContainer.appendChild(taskElement);
+    });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     renderTasks(tasks);
@@ -245,9 +222,9 @@ function sortByDueDate(tasks) {
 
 function sortByPriority(tasks) {
     const priorityOrder = {
-        low: 1,
-        medium: 2,
-        high: 3,
+        Low: 1,
+        Medium: 2,
+        High: 3,
     };
 
     return tasks.sort(
@@ -265,14 +242,4 @@ function sortTasks(sortby, tasks) {
         tasks = sortById(tasks);
     }
     renderTasks(tasks);
-}
-
-const tasksContainer = document.querySelector(".tasks-container");
-function renderTasks(tasks) {
-    tasksContainer.innerHTML = "";
-
-    tasks.forEach((task) => {
-        const taskElement = addTask(task);
-        tasksContainer.appendChild(taskElement);
-    });
 }

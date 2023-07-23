@@ -40,5 +40,5 @@ function submitTask(event) {
 
     console.log(tasks);
     form.reset();
-    window.history.back();
+    // window.history.back();
 }

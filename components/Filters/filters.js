@@ -42,7 +42,7 @@ function addFilter(event) {
         priority: prioritySelected,
     };
 
-    console.log(filterObject);
+    localStorage.setItem("filter-object", JSON.stringify(filterObject));
 
     from.value = "";
     to.value = "";
