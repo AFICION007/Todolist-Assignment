@@ -123,3 +123,10 @@ h1 {
     background-color: rgb(220, 220, 225);
     border-bottom: 1px solid rgb(220, 220, 220, 0.8);
 }
+
+.tasks-container {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
