@@ -15,7 +15,7 @@ function addInputField(containerId) {
 
 var tasks = [];
 var count = 0;
-function addTask(event) {
+function submitTask(event) {
     event.preventDefault();
     const form = document.getElementById("taskForm");
 
@@ -34,6 +34,10 @@ function addTask(event) {
 
     taskObject.id = count;
     count++;
+
+    const newTask = addTask(taskObject);
+    const tasksContainer = document.querySelector(".tasks-container");
+    tasksContainer.appendChild(newTask);
 
     tasks.push(taskObject);
     console.log(tasks);

@@ -1,0 +1,123 @@
+body {
+    margin-inline: 100px;
+    margin-top: 20px;
+    font-family: 'Open sans';
+    color: #333;
+}
+
+.task-due-date {
+    text-align: right;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 7.5px;
+}
+
+.task {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 76px;
+    overflow-y: hidden;
+    padding: 5px;
+    padding-block: 10px;
+    margin-bottom: 7.5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Open sans';
+    font-weight: 400;
+}
+
+.cat-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.task-priority,
+.task-category {
+    font-size: 14px;
+    /* font-weight: 500; */
+}
+
+.subtasks-heading,
+.tags-heading {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.subtasks-list {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.subtask {
+    box-sizing: border-box;
+    height: 30px;
+    width: 100%;
+    padding-inline: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Open sans';
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.subtask[disabled],
+textarea[disabled] {
+    resize: vertical;
+    background-color: #fff;
+    border-inline: none;
+    border-radius: 0;
+}
+
+.subtask[disabled] {
+    resize: vertical;
+    background-color: #fff;
+    border: none;
+    border-radius: 0;
+}
+
+.subtask[disabled]::placeholder,
+textarea[disabled]::placeholder {
+    color: #333;
+}
+
+.task-tags {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.tags-heading {
+    vertical-align: middle;
+}
+
+.tags-list {
+    margin: 0;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.tag {
+    flex: 1;
+    margin-inline-end: 5px;
+    list-style-type: none;
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px solid #ccc;
+    font-family: 'Open sans';
+    font-weight: 400;
+    font-size: 14px;
+}

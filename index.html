@@ -6,11 +6,12 @@
         <title>To do list homepage</title>
         <link rel="stylesheet" href="index.css" />
         <link rel="stylesheet" href="searchBar.css" />
+        <link rel="stylesheet" href="task.css" />
     </head>
     <body>
         <h1>Todolist Home Page</h1>
         <div class="top-container">
-            <a href="../Filters/filters.html">
+            <a href="./components/Filters/filters.html">
                 <div class="filters">
                     <button class="filter-button">
                         Filters
@@ -69,7 +70,7 @@
                     </button>
                 </div>
             </div>
-            <a href="../AddTask/form.html">
+            <a href="./components/Form/form.html">
                 <div class="add-task">
                     <button class="add-task-button">
                         Add task
@@ -88,11 +89,16 @@
             </a>
             <div style="width: 140px"></div>
         </div>
+
         <div class="drop-down-menu show-menu">
             <ul class="options-list">
                 <li class="option">Due date</li>
                 <li class="option">Priority</li>
             </ul>
+        </div>
+
+        <div class="tasks-container">
+            <h4>tasks container</h4>
         </div>
         <script src="index.js"></script>
     </body>
