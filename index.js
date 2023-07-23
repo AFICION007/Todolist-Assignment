@@ -95,8 +95,15 @@ const addTask = ({
     return taskDiv;
 };
 
-var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+var checkBacklogs = false;
+function setCheckBacklogs() {
+    if (checkBacklogs) {
+        return false;
+    }
+    return true;
+}
 
+var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 console.log(tasks);
 
 function filterTasks({ from, to, category, priority }, tasks) {
@@ -121,11 +128,32 @@ function filterTasks({ from, to, category, priority }, tasks) {
     });
 }
 
+function backlogTasks(tasks) {
+    return tasks.filter((task) => {
+        let meetsCriteria = true;
+        var todaysDate = new Date();
+
+        if (task.is_completed) {
+            meetsCriteria = false;
+        }
+
+        if (new Date(task.due_date) > todaysDate) {
+            meetsCriteria = false;
+        }
+
+        return meetsCriteria;
+    });
+}
+
 const tasksContainer = document.querySelector(".tasks-container");
 function renderTasks(tasks) {
     tasksContainer.innerHTML = "";
 
-    console.log(JSON.parse(localStorage.getItem("filter-object")));
+    // console.log(JSON.parse(localStorage.getItem("filter-object")));
+    console.log(checkBacklogs);
+    if (checkBacklogs) {
+        tasks = backlogTasks(tasks);
+    }
 
     const { from, to, category, priority } = JSON.parse(
         localStorage.getItem("filter-object")
