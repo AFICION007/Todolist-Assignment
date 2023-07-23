@@ -13,7 +13,7 @@ function addInputField(containerId) {
     container.appendChild(newInput);
 }
 
-var tasks = [];
+var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 var count = 0;
 function submitTask(event) {
     event.preventDefault();
@@ -35,11 +35,9 @@ function submitTask(event) {
     taskObject.id = count;
     count++;
 
-    const newTask = addTask(taskObject);
-    const tasksContainer = document.querySelector(".tasks-container");
-    tasksContainer.appendChild(newTask);
-
     tasks.push(taskObject);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
     console.log(tasks);
     form.reset();
     window.history.back();

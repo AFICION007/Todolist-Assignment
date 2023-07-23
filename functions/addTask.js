@@ -1,4 +1,5 @@
 const addTask = ({
+    id,
     task,
     is_completed,
     category,
